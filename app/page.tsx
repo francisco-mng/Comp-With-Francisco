@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import SketchBox from '@/components/ui/SketchBox';
 import PricingCard from '@/components/ui/PricingCard';
+import HeroSection from '@/components/ui/HeroSection';
 
 export default function CodingEssentialsPage() {
   const plans = [
@@ -38,29 +39,7 @@ export default function CodingEssentialsPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-16">
       {/* Header Profile Section */}
-      <header className="text-center mb-14">
-        <div className="relative w-40 h-40 mx-auto mb-6">
-          <div className="w-full h-full rounded-full border-4 border-slate-900 overflow-hidden shadow-sketch-accent">
-            <Image 
-              src="/images/francisco-profile.jpg" // Place your profile photo in your public/images/ directory
-              alt="Francisco - UKZN CS/IT Graduate"
-              width={160}
-              height={160}
-              className="object-cover w-full h-full"
-              priority
-            />
-          </div>
-        </div>
-        <div className="text-emerald-500 text-xs font-extrabold uppercase tracking-[0.2em] mb-2">
-          BSc Computer Science & IT | UKZN Alumni
-        </div>
-        <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">
-          Coding Essentials <br className="hidden md:inline" /> in the Age of AI
-        </h1>
-        <p className="text-lg text-slate-500 max-w-xl mx-auto font-medium">
-          Building the next generation of architects who master the &quot;Why&quot; behind the code.
-        </p>
-      </header>
+      <HeroSection></HeroSection>
 
       {/* Core Mission Manifesto */}
       <SketchBox title="Beyond the Prompt 🧠">
