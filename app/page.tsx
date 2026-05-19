@@ -1,135 +1,98 @@
-import React from 'react';
+import Image from 'next/image';
+import SketchBox from '@/components/ui/SketchBox';
+import PricingCard from '@/components/ui/PricingCard';
 
-// 1. The TypeScript Interface for strict typing
-interface PricingTier {
-  id: string;
-  title: string;
-  price: number;
-  description: string;
-  features: string[];
-  isPopular?: boolean;
-  buttonText: string;
-}
+export default function CodingEssentialsPage() {
+  const plans = [
+    {
+      title: "Standard Plan",
+      price: "R350",
+      period: "/ hour",
+      sessionInfo: "Flexible Scheduling",
+      features: ["Last-minute exam prep", "On-demand logic mapping", "Past paper deep-dives"],
+      isFeatured: false
+    },
+    {
+      title: "Special Intake",
+      price: "R1,800",
+      period: "/ month",
+      sessionInfo: "4 Sessions (3 Hours Each)",
+      features: [
+        "12 Hours total deep-dive mentorship",
+        "Priority WhatsApp Helpline",
+        "Recordings & Source Code included",
+        "Effective Rate: R150/h"
+      ],
+      isFeatured: true
+    },
+    {
+      title: "Saver Plan",
+      price: "R1,300",
+      period: "/ month",
+      sessionInfo: "4 Sessions (1.5 Hours Each)",
+      features: ["6 Hours total mentorship", "High-impact weekly momentum", "Core concept focus"],
+      isFeatured: false
+    }
+  ];
 
-// 2. Your static data (No database required yet!)
-const pricingTiers: PricingTier[] = [
-  {
-    id: 'survival',
-    title: 'Exam Survival Pass',
-    price: 250,
-    description: 'Everything you need to master the core concepts and pass your modules.',
-    features: [
-      'Full access to recorded tutorials',
-      'Weekly group review sessions',
-      'Access to student Q&A forum'
-    ],
-    buttonText: 'Get Started'
-  },
-  {
-    id: 'vip',
-    title: 'The VIP Carry',
-    price: 500,
-    description: 'For students who want priority help, code reviews, and guaranteed support.',
-    features: [
-      'Everything in Exam Survival',
-      'Priority code debugging',
-      '1-on-1 emergency exam prep call',
-      'Architecture & logic reviews'
-    ],
-    isPopular: true,
-    buttonText: 'Secure Your Spot'
-  }
-];
-
-// 3. The Main Page Component
-export default function HomePage() {
   return (
-    <main className="min-h-screen bg-gray-50 flex flex-col justify-center">
-      
-      {/* Hero Section (Optional intro before pricing) */}
-      <div className="text-center pt-16 pb-8 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-          Comp With Francisco
+    <div className="max-w-4xl mx-auto px-4 py-16">
+      {/* Header Profile Section */}
+      <header className="text-center mb-14">
+        <div className="relative w-40 h-40 mx-auto mb-6">
+          <div className="w-full h-full rounded-full border-4 border-slate-900 overflow-hidden shadow-sketch-accent">
+            <Image 
+              src="/images/francisco-profile.jpg" // Place your profile photo in your public/images/ directory
+              alt="Francisco - UKZN CS/IT Graduate"
+              width={160}
+              height={160}
+              className="object-cover w-full h-full"
+              priority
+            />
+          </div>
+        </div>
+        <div className="text-emerald-500 text-xs font-extrabold uppercase tracking-[0.2em] mb-2">
+          BSc Computer Science & IT | UKZN Alumni
+        </div>
+        <h1 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-4">
+          Coding Essentials <br className="hidden md:inline" /> in the Age of AI
         </h1>
-        <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-          Master your Computer Science modules with principles-first learning. No fluff, just the logic you need to ace the exam.
+        <p className="text-lg text-slate-500 max-w-xl mx-auto font-medium">
+          Building the next generation of architects who master the &quot;Why&quot; behind the code.
+        </p>
+      </header>
+
+      {/* Core Mission Manifesto */}
+      <SketchBox title="Beyond the Prompt 🧠">
+        <p>In a world of generative AI, anyone can prompt. But only the <strong className="text-slate-900">top 1%</strong> can architect systems, verify logic, and solve the critical architectural problems that AI cannot. We focus on building the intellectual sovereignty required to lead in modern business and software development.</p>
+      </SketchBox>
+
+      {/* Pricing Grid */}
+      <div className="grid md:grid-cols-3 gap-6 my-12 items-start">
+        {plans.map((plan, index) => (
+          <PricingCard key={index} {...plan} />
+        ))}
+      </div>
+
+      {/* Flexible Negotiation Box */}
+      <div className="bg-amber-50 border-2 border-dashed border-amber-500 rounded-xl p-6 text-center my-12">
+        <p className="italic font-semibold text-amber-900 text-sm md:text-base">
+          <strong>Note on Accessibility:</strong> I believe high-quality mentorship should be accessible. If you are a dedicated student but these rates are a barrier, I am entirely open to negotiation. Let&apos;s find a balance that respects your budget and your ambition.
         </p>
       </div>
 
-      {/* Pricing Section */}
-      <section className="py-12 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-              Crush Your CS Exams
-            </h2>
-            <p className="mt-4 text-xl text-gray-600">
-              Simple, upfront pricing to get you through the exam session. No hidden fees.
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
-            
-            {/* Map over the pricing array */}
-            {pricingTiers.map((tier) => (
-              <div 
-                key={tier.id}
-                className={`flex flex-col p-8 rounded-2xl border relative ${
-                  tier.isPopular 
-                    ? 'bg-gray-900 shadow-2xl border-gray-800 transform md:-translate-y-4' 
-                    : 'bg-white shadow-lg border-gray-100'
-                }`}
-              >
-                {tier.isPopular && (
-                  <div className="absolute top-0 right-6 transform -translate-y-1/2">
-                    <span className="bg-blue-500 text-white text-sm font-bold uppercase tracking-wider py-1 px-3 rounded-full">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-                
-                <h3 className={`text-2xl font-semibold ${tier.isPopular ? 'text-white' : 'text-gray-900'}`}>
-                  {tier.title}
-                </h3>
-                
-                <p className={`mt-4 flex-grow ${tier.isPopular ? 'text-gray-400' : 'text-gray-500'}`}>
-                  {tier.description}
-                </p>
-                
-                <div className={`mt-6 flex items-baseline text-5xl font-extrabold ${tier.isPopular ? 'text-white' : 'text-gray-900'}`}>
-                  R{tier.price}
-                  <span className={`ml-1 text-xl font-medium ${tier.isPopular ? 'text-gray-400' : 'text-gray-500'}`}>
-                    /session
-                  </span>
-                </div>
-                
-                <ul className="mt-8 space-y-4">
-                  {tier.features.map((feature, index) => (
-                    <li key={index} className={`flex items-center ${tier.isPopular ? 'text-gray-300' : 'text-gray-600'}`}>
-                      <span className={`${tier.isPopular ? 'text-blue-400' : 'text-green-500'} mr-3`}>
-                        ✓
-                      </span> 
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-                
-                <button 
-                  className={`mt-8 block w-full font-bold py-3 px-4 rounded-lg transition-colors ${
-                    tier.isPopular 
-                      ? 'bg-blue-500 hover:bg-blue-600 text-white' 
-                      : 'bg-blue-100 hover:bg-blue-200 text-blue-700'
-                  }`}
-                >
-                  {tier.buttonText}
-                </button>
-              </div>
-            ))}
-
-          </div>
-        </div>
-      </section>
-    </main>
+      {/* Action Footer */}
+      <footer className="text-center mt-12">
+        <a 
+          href="mailto:franciscomnopdjh@gmail.com?subject=Enrollment%20Inquiry%20-%20Coding%20Essentials"
+          className="inline-block bg-slate-900 text-white font-extrabold tracking-wide px-10 py-5 rounded border-2 border-slate-900 transition-all duration-200 hover:bg-transparent hover:text-slate-900 hover:rounded-xl text-lg shadow-sketch-primary"
+        >
+          SECURE YOUR SPOT
+        </a>
+        <p className="text-xs font-semibold text-slate-400 mt-4">
+          Pay a <strong>R300 enrollment fee</strong> to lock your spot for this intake.
+        </p>
+      </footer>
+    </div>
   );
 }
