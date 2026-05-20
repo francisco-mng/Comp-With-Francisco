@@ -106,6 +106,9 @@ export default function CodingEssentialsPage() {
             ></iframe>
           </div>
         </div>
+
+
+       
       </div>
 
       {/* Image Column */}
@@ -124,6 +127,7 @@ export default function CodingEssentialsPage() {
           fill
           className="object-contain"
         />
+        
         {/* <Image 
           src={whatsapp} 
           alt="Student testimonial" 
@@ -144,7 +148,20 @@ export default function CodingEssentialsPage() {
       <br></br>Watch this video to get a feel for how my teaching style has a track record of transforming students from confusion to clarity faster than anything else you'll find elsewhere.
       <br/><br/>
             I am here to help you understand programming in <strong>C# .NET faster than anywhere else</strong>, just in time for your exams. <br></br> 
-            <br></br>This video shows just a taste of the value you're going to get from the <strong><i>SpecialExam Intake</i></strong>
+            <br></br>This video shows just a taste of the value you're going to get from the <strong><i>Special Exam Intake</i></strong>
+    <iframe 
+              width="auto%" 
+              height="auto%" 
+              src="https://www.youtube.com/embed/o7-Pd-vPkOM?si=jJuqayLB1HxL1ooD&amp;start=7" 
+              title="YouTube video player" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerPolicy="strict-origin-when-cross-origin" 
+              allowFullScreen
+              style={{ borderRadius: '0.5rem', alignItems: 'center' }}
+
+
+            ></iframe>
     </SketchBox>
 
  
