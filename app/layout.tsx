@@ -28,12 +28,27 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
-        
+        <script type="text/javascript">
+        {
+          //Tracking code for Microsoft Clarity, a user behavior analytics tool
+          //This code snippet initializes Clarity on the website, allowing the site
+          //owner to track user interactions and gain insights into how users are 
+          //engaging with the site. The "wu4fcb1nli" is the unique project ID for this 
+          //specific Clarity instance.
+          ` (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "wu4fcb1nli");`
+        }
+    </script>
 
       </head>
       <body className="min-h-full flex flex-col">
+        {children}
+
         
-        {children}</body>
+        </body>
     </html>
   );
 }
