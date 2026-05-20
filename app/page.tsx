@@ -168,7 +168,7 @@ export default function CodingEssentialsPage() {
         <footer className="mt-16 pb-12 text-center">
         <div className="mb-8">
           <h2 className="text-3xl font-black text-slate-900 mb-2">Ready to crush your exam?</h2>
-          <p className="text-slate-500 font-medium">Select your plan below and message me directly on WhatsApp.</p>
+          <p className="text-slate-500 font-medium">Select a plan you're interested in and I'll we'll talk over on WhatsApp.</p>
         </div>
         
         {/* Render the Client Component Form */}
