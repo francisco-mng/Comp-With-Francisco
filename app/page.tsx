@@ -6,15 +6,17 @@ import EnrollmentForm from '@/components/ui/EnrollmentForm';
 
 //Importing images: 
 import testimonial1 from '@/public/images/testimonial1.png'
+import testimonial2 from '@/public/images/testimonial2.png'
+import whatsapp from '@/public/images/whatsapp_helpline.png'
 
 export default function CodingEssentialsPage() {
   const plans = [
     {
       title: "Standard Plan",
-      price: "R250",
+      price: "R239",
       period: "/ hour",
       sessionInfo: "Flexible Scheduling",
-      features: ["Last-minute exam prep", "On-demand logic mapping", "Past paper deep-dives"],
+      features: ["Last-minute exam prep", "On-demand ", "Last minute Past paper deep-dives"],
       isFeatured: false
     },
     {
@@ -69,20 +71,80 @@ export default function CodingEssentialsPage() {
           </SketchBox>
 
   <SketchBox title={"Testimonials"}>
-    <h1><strong><i>"This should should really take the place of lectures!! It's highly effective {";)"}" ~ Bongekile</i></strong></h1>
-    <iframe width="auto" height="auto" src="https://www.youtube.com/embed/AStd30tPLkY?si=Uw50Vf3oDOO95c4j" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-    <br/><br/>
-    <h1><strong><i>"It was really helpful, especially if you don't know how go about attacking your test, this sesssion sets the tone!! {";)"} " ~ Bongani</i></strong></h1>
-    <iframe width="auto" height="auto" src="https://www.youtube.com/embed/0IeJaPdhQF8?si=8VfQSjdqUMsFUT5-" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-    
+    <div className="grid md:grid-cols-2 gap-8 items-center">
+      {/* Video Column */}
+      <div className="flex flex-col gap-4">
+        <div>
+          <h3><strong><i>"This should really take the place of lectures!! It's highly effective {";)"}" ~ Bongekile</i></strong></h3>
+          <div className="w-full aspect-video mt-3">
+            <iframe 
+              width="100%" 
+              height="100%" 
+              src="https://www.youtube.com/embed/AStd30tPLkY?si=Uw50Vf3oDOO95c4j" 
+              title="YouTube video player" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerPolicy="strict-origin-when-cross-origin" 
+              allowFullScreen
+              style={{ borderRadius: '0.5rem' }}
+            ></iframe>
+          </div>
+        </div>
+        <div>
+          <h3><strong><i>"It was really helpful, especially if you don't know how to go about attacking your test, this session sets the tone!! {";)"} " ~ Bongani</i></strong></h3>
+          <div className="w-full aspect-video mt-3">
+            <iframe 
+              width="100%" 
+              height="100%" 
+              src="https://www.youtube.com/embed/0IeJaPdhQF8?si=8VfQSjdqUMsFUT5-" 
+              title="YouTube video player" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+              referrerPolicy="strict-origin-when-cross-origin" 
+              allowFullScreen
+              style={{ borderRadius: '0.5rem' }}
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      {/* Image Column */}
+      <div className="relative w-full h-full min-h-[500px]">
+        {/* <Image 
+          src={testimonial1} 
+          alt="Student testimonial" 
+          fill
+          className="object-contain"
+        /> */}
+       
+        <Image 
+          style={{borderRadius: "50px"}}
+          src={testimonial2} 
+          alt="Student testimonial" 
+          fill
+          className="object-contain"
+        />
+        {/* <Image 
+          src={whatsapp} 
+          alt="Student testimonial" 
+          fill
+          className="object-contain"
+        /> */}
+      </div>
+    </div>
   </SketchBox>
 
-  <SketchBox title={"See it for yourself! Test if this will work for you!"}>
+  <SketchBox title={"See the value for yourself! Watch this 👇"}>
     <h1>Best watched on YouTube directly 1.5x speed {";)"}</h1>
-    <iframe width="auto" height="auto" src="https://www.youtube.com/embed/_wiRvGR473A?si=inuOfDoDn_seT47n" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe><br></br>Watch this video to see that my teaching style has a track record of transforming students from confusion to clarity faster than anything else you'll find elsewhere.
-            <br/><br/>
+    <iframe width="auto" height="auto" src="https://www.youtube.com/embed/_wiRvGR473A?si=inuOfDoDn_seT47n" 
+      title="YouTube video player" frameBorder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerPolicy="strict-origin-when-cross-origin" allowFullScreen>
+      </iframe>
+      <br></br>Watch this video to get a feel for how my teaching style has a track record of transforming students from confusion to clarity faster than anything else you'll find elsewhere.
+      <br/><br/>
             I am here to help you understand programming in <strong>C# .NET faster than anywhere else</strong>, just in time for your exams. <br></br> 
-            This video shows just a taste of the value you're going to get from the <strong><i>SpecialExam Intake</i></strong>
+            <br></br>This video shows just a taste of the value you're going to get from the <strong><i>SpecialExam Intake</i></strong>
     </SketchBox>
 
  

@@ -8,5 +8,5 @@ const nextConfig: NextConfig = {
 export default nextConfig;
 
 module.exports = {
-  allowedDevOrigins: ['www.compwithfrancisco.co.za'],
+  allowedDevOrigins: ['www.compwithfrancisco.co.za', "compwithfrancisco.co.za"],
 }
