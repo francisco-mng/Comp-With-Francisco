@@ -6,6 +6,7 @@ import { fetchAdminData, togglePaymentStatus, toggleBountyStatus } from '@/app/a
 type Enrollment = {
   id: number;
   full_name: string;
+
   student_number: string;
   whatsapp_number: string;
   plan: string;
@@ -63,9 +64,15 @@ export default function AdminDashboard() {
     const paidStudents = students.filter(s => s.is_paid === 1).length;
     const pendingStudents = totalLeads - paidStudents;
     
-    // Revenue Math (Assuming everyone paid R500 for simplicity of gross revenue, 
-    // but you can refine this later if needed)
-    const grossRevenue = paidStudents * 500;
+    // Calculate Gross Revenue
+    // Conditionally depending on the plan!
+    const grossRevenue = students.reduce((total, student) => {
+    if (student.is_paid === 1) {
+        if (student.plan.includes('500')) return total + 500;
+        if (student.plan.includes('250')) return total + 250;
+    }
+    return total;
+    }, 0);
     
     // NEW: Strict Bounty Math (Only counts if the plan contains "500")
     const bountiesOwed = students.filter(s => s.is_paid === 1 && s.referrer_id && s.bounty_paid === 0 && s.plan.includes('500')).length;
