@@ -126,8 +126,10 @@ export default function EnrollmentForm() {
           
           <div className="bg-red-50 border border-red-200 rounded p-3 mb-4 mt-2">
             <p className="text-sm font-bold text-red-700 text-center">
-              🚨 Wanna make some extra cash? <br/> Tell a friend doing ISTN2IP to enroll and put your Student Number below. You get the R110 cash bounty <strong><i> even  if you don't sign up!</i></strong> ;)
+              🚨 Wanna make some extra cash? <br/> Tell a friend doing ISTN2IP to enroll and put your Student Number below. You get the R110 cash bounty <strong><i> even  if you don't sign up!</i></strong>
             </p>
+            <br className="hidden md:block" />
+            <p className="text-sm font-bold text-red-700 text-center">(Only when they fully enroll) </p>
           </div>
 
           <label htmlFor="referrerId" className="block text-sm font-bold text-emerald-600 mb-2">Referred by a friend? (Optional)</label>
