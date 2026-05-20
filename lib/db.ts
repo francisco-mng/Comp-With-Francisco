@@ -29,4 +29,12 @@ try {
   }
 }
 
+// NEW: Add the bounty_paid column
+try {
+  db.exec(`ALTER TABLE enrollments ADD COLUMN bounty_paid INTEGER DEFAULT 0`);
+  console.log("⚡ Migration successful: 'bounty_paid' column added to database.");
+} catch (err: any) {
+  if (!err.message.includes('duplicate column name')) console.error(err);
+}
+
 export default db;
