@@ -57,3 +57,23 @@ export const togglePaymentStatus = async (id: number, currentStatus: number, sub
     return { success: false };
   }
 }
+
+// NEW ACTION: Toggle the bounty_paid status
+export const toggleBountyStatus = async (id: number, currentStatus: number, submittedPin: string) => {
+  try {
+    const secretPin = process.env.ADMIN_PIN;
+    if (!secretPin || submittedPin.trim() !== secretPin.trim()) {
+      return { success: false, message: "Unauthorized." };
+    }
+
+    const newStatus = currentStatus === 1 ? 0 : 1;
+    const stmt = db.prepare('UPDATE enrollments SET bounty_paid = ? WHERE id = ?');
+    stmt.run(newStatus, id);
+    
+    revalidatePath('/adminMNG');
+    return { success: true };
+  } catch (error) {
+    console.error("Update Error:", error);
+    return { success: false };
+  }
+}
