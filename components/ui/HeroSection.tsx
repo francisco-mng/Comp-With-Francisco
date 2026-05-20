@@ -26,12 +26,12 @@ export default function HeroSection() {
               </div>
             </div><br></br>
             <div className="text-emerald-500 text-xs font-extrabold uppercase tracking-[0.2em] mb-2">
-              I graduated with a BSc in Computer Science & IT. <br className="hidden md:inline" />
-               Let's navigate programming ;{")"} 
+              I graduated with a BSc in Computer Science & IT. <br className="hidden md:inline" /><br className="hidden md:inline"></br>
+               <strong>Let's help you get there ;{")"}</strong> 
             </div>
            
             <p className="text-lg text-slate-500 max-w-xl mx-auto font-medium">
-              Let me help you crush your ISTN2IP exams. You can still improve I&apos;m here to help you understand better. 
+              Let me help you crush your ISTN2IP exam! You can still improve I&apos;m here to help you understand better. 
               <br></br><br></br>
               Since exams are around the corner, my main priority is to help you understand the core concepts and problem-solving techniques that will allow you to excel in your exams.
             </p>

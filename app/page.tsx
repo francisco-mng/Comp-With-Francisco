@@ -2,39 +2,42 @@ import Image from 'next/image';
 import SketchBox from '@/components/ui/SketchBox';
 import PricingCard from '@/components/ui/PricingCard';
 import HeroSection from '@/components/ui/HeroSection';
+import EnrollmentForm from '@/components/ui/EnrollmentForm';
+
+//Importing images: 
+import testimonial1 from '@/public/images/testimonial1.png'
 
 export default function CodingEssentialsPage() {
   const plans = [
     {
       title: "Standard Plan",
-      price: "R350",
+      price: "R250",
       period: "/ hour",
       sessionInfo: "Flexible Scheduling",
       features: ["Last-minute exam prep", "On-demand logic mapping", "Past paper deep-dives"],
       isFeatured: false
     },
     {
-      title: "Special Intake",
-      price: "R1,800",
-      period: "/ month",
-      sessionInfo: "4 Sessions (3 Hours Each)",
+      title: "Special Exam Intake (pay once)",
+      price: "R500",
+      period: "/ till end of exams",
+      sessionInfo: "3hr sessions 3x a week",
       features: [
-        "12 Hours total deep-dive mentorship",
-        "Priority WhatsApp Helpline",
-        "Recordings & Source Code included",
-        "Effective Rate: R150/h"
+        "Sign in now and get help until you finish writing your exams OR sup",
+        "3 Hours total deep-dive mentorship for 3x a week",
+        "Priority WhatsApp Helpline. Response in less than 24H",
+        "Recordings & Code included",
+        "Send me custom questions and past papers, I'll help you go through them", 
+        "Learn more in one session than anywhere else", 
+        "BEST VALUE"
       ],
       isFeatured: true
-    },
-    {
-      title: "Saver Plan",
-      price: "R1,300",
-      period: "/ month",
-      sessionInfo: "4 Sessions (1.5 Hours Each)",
-      features: ["6 Hours total mentorship", "High-impact weekly momentum", "Core concept focus"],
-      isFeatured: false
     }
   ];
+
+  const images = {
+
+  }
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-16">
@@ -42,12 +45,50 @@ export default function CodingEssentialsPage() {
       <HeroSection></HeroSection>
 
       {/* Core Mission Manifesto */}
-      <SketchBox title="Beyond the Prompt 🧠">
-        <p>In a world of generative AI, anyone can prompt. But only the <strong className="text-slate-900">top 1%</strong> can architect systems, verify logic, and solve the critical architectural problems that AI cannot. We focus on building the intellectual sovereignty required to lead in modern business and software development.</p>
+      <SketchBox title="Understand faster than anywhere else 🧠">
+        <p>In a world of generative AI, anyone can prompt...
+          This leads to students and lectures not spending enough time getting you to understand programming. 
+          And the exams require you to understand programming, not just copy and paste code from AI
+
+          <br></br><br></br>
+          <strong>That&apos;s where I come in ;{")"} </strong>
+         
+        </p>
       </SketchBox>
 
+      <SketchBox title="Pass your ISTN2IP exams with confidence.🔥🔥🔥">
+        <p>
+          I have mentored 200+ over 2 years as an SI Leader at UKZN. 
+          I'm confident that you too can be one of the students who have transformed from struggling to understanding programming.
+          <br/><br/>
+          What I offer is not just tutoring, but high quality teachings that are rare and you won't find anywhere else. I have a proven track record of helping students understand programming concepts deeply and effectively, which is crucial for acing your ISTN2IP exams. 
+          <br/><br/>
+          
+          {/* Youtube video iframe */}
+        </p>
+          </SketchBox>
+
+  <SketchBox title={"Testimonials"}>
+    <h1><strong><i>"This should should really take the place of lectures!! It's highly effective {";)"}" ~ Bongekile</i></strong></h1>
+    <iframe width="auto" height="auto" src="https://www.youtube.com/embed/AStd30tPLkY?si=Uw50Vf3oDOO95c4j" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+    <br/><br/>
+    <h1><strong><i>"It was really helpful, especially if you don't know how go about attacking your test, this sesssion sets the tone!! {";)"} " ~ Bongani</i></strong></h1>
+    <iframe width="auto" height="auto" src="https://www.youtube.com/embed/0IeJaPdhQF8?si=8VfQSjdqUMsFUT5-" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+    
+  </SketchBox>
+
+  <SketchBox title={"See it for yourself! Test if this will work for you!"}>
+    <h1>Best watched on YouTube directly 1.5x speed {";)"}</h1>
+    <iframe width="auto" height="auto" src="https://www.youtube.com/embed/_wiRvGR473A?si=inuOfDoDn_seT47n" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe><br></br>Watch this video to see that my teaching style has a track record of transforming students from confusion to clarity faster than anything else you'll find elsewhere.
+            <br/><br/>
+            I am here to help you understand programming in <strong>C# .NET faster than anywhere else</strong>, just in time for your exams. <br></br> 
+            This video shows just a taste of the value you're going to get from the <strong><i>SpecialExam Intake</i></strong>
+    </SketchBox>
+
+ 
+
       {/* Pricing Grid */}
-      <div className="grid md:grid-cols-3 gap-6 my-12 items-start">
+      <div className="grid md:grid-cols-2 gap-6 my-12 items-start">
         {plans.map((plan, index) => (
           <PricingCard key={index} {...plan} />
         ))}
@@ -62,15 +103,19 @@ export default function CodingEssentialsPage() {
 
       {/* Action Footer */}
       <footer className="text-center mt-12">
-        <a 
-          href="mailto:franciscomnopdjh@gmail.com?subject=Enrollment%20Inquiry%20-%20Coding%20Essentials"
-          className="inline-block bg-slate-900 text-white font-extrabold tracking-wide px-10 py-5 rounded border-2 border-slate-900 transition-all duration-200 hover:bg-transparent hover:text-slate-900 hover:rounded-xl text-lg shadow-sketch-primary"
-        >
-          SECURE YOUR SPOT
-        </a>
-        <p className="text-xs font-semibold text-slate-400 mt-4">
-          Pay a <strong>R300 enrollment fee</strong> to lock your spot for this intake.
+        <footer className="mt-16 pb-12 text-center">
+        <div className="mb-8">
+          <h2 className="text-3xl font-black text-slate-900 mb-2">Ready to architect your success?</h2>
+          <p className="text-slate-500 font-medium">Select your plan below and message me directly on WhatsApp.</p>
+        </div>
+        
+        {/* Render the Client Component Form */}
+        <EnrollmentForm />
+        
+        <p className="text-xs font-semibold text-slate-400 mt-6 max-w-sm mx-auto">
+          Clicking the button will open WhatsApp securely. Direct EFT details will be provided in chat.
         </p>
+      </footer>
       </footer>
     </div>
   );
