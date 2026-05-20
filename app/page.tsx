@@ -167,7 +167,7 @@ export default function CodingEssentialsPage() {
       <footer className="text-center mt-12">
         <footer className="mt-16 pb-12 text-center">
         <div className="mb-8">
-          <h2 className="text-3xl font-black text-slate-900 mb-2">Ready to architect your success?</h2>
+          <h2 className="text-3xl font-black text-slate-900 mb-2">Ready to crush your exam?</h2>
           <p className="text-slate-500 font-medium">Select your plan below and message me directly on WhatsApp.</p>
         </div>
         
@@ -175,7 +175,9 @@ export default function CodingEssentialsPage() {
         <EnrollmentForm />
         
         <p className="text-xs font-semibold text-slate-400 mt-6 max-w-sm mx-auto">
-          Clicking the button will open WhatsApp securely. Direct EFT details will be provided in chat.
+          Be on the lookout for my WhatsApp messages to complete your enrollment!
+          We can also discuss any questions you have about the plans {"(split payments)"}, scheduling,
+           or how I can best support your exam prep. I&apos;m here to help you succeed!
         </p>
       </footer>
       </footer>

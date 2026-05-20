@@ -71,9 +71,9 @@ export default function EnrollmentForm() {
     return (
       <div className="max-w-md mx-auto bg-emerald-50 p-8 border-2 border-emerald-500 rounded-xl shadow-[8px_8px_0px_#10b981] text-center">
         <div className="text-4xl mb-4">✅</div>
-        <h3 className="text-2xl font-black text-slate-900 mb-2">Spot Secured!</h3>
+        <h3 className="text-2xl font-black text-slate-900 mb-2">Request Received!</h3>
         <p className="text-slate-700 font-medium mb-6">
-          I will WhatsApp you the EFT details shortly. Once your payment clears, your access is locked in.
+          I'll be reaching out to you on WhatsApp shortly to have a quick chat, share the EFT details, and get you ready for the sessions!
         </p>
       </div>
     );
@@ -126,7 +126,7 @@ export default function EnrollmentForm() {
           
           <div className="bg-red-50 border border-red-200 rounded p-3 mb-4 mt-2">
             <p className="text-sm font-bold text-red-700 text-center">
-              🚨 Broke right now? Tell a friend to enroll and put your Student Number below. You get the R110 cash bounty even if you don't sign up! ;)
+              🚨 Wanna make some extra cash? <br/> Tell a friend doing ISTN2IP to enroll and put your Student Number below. You get the R110 cash bounty <strong><i> even  if you don't sign up!</i></strong> ;)
             </p>
           </div>
 

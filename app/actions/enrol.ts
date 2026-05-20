@@ -34,6 +34,12 @@ export async function submitEnrollment(formData: FormData) {
       VALUES (?, ?, ?, ?, ?)
     `);
 
+    // NEW: Check if WhatsApp Number exists
+    const existingWhatsApp = db.prepare('SELECT id FROM enrollments WHERE whatsapp_number = ?').get(whatsappNumber);
+    if (existingWhatsApp) {
+      return { success: false, message: "This WhatsApp number is already registered to another student!" };
+    }
+
     stmt.run(fullName, studentNumber, whatsappNumber, plan, referrerId || null);
 
     return { success: true, message: "Enrollment secured." };
