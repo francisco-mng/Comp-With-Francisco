@@ -1,33 +1,46 @@
 'use server';
 
 import db from '@/lib/db';
+import { revalidatePath } from 'next/cache';
 
-export default async function submitEnrollment(formData: FormData) {
+export async function submitEnrollment(formData: FormData) {
   try {
-    // Extract data from the form payload
-    const fullName = formData.get('fullName')?.toString() || '';
-    const studentNumber = formData.get('studentNumber')?.toString() || '';
-    const whatsappNumber = formData.get('whatsappNumber')?.toString() || '';
+    // 1. Extract and sanitize data
+    const fullName = formData.get('fullName')?.toString().trim() || '';
+    const studentNumber = formData.get('studentNumber')?.toString().trim() || '';
+    const whatsappNumber = formData.get('whatsappNumber')?.toString().replace(/\s+/g, '') || ''; // Strips spaces
     const plan = formData.get('plan')?.toString() || '';
-    const referrerId = formData.get('referrerId')?.toString() || '';
+    const referrerId = formData.get('referrerId')?.toString().trim() || '';
 
-    // Basic server-side validation
+    // 2. Basic Empty Field Validation
     if (!fullName || !studentNumber || !whatsappNumber) {
-      return { success: false, message: "Missing required fields." };
+      return { success: false, message: "Please fill out all required fields." };
     }
 
-    // Prepare the parameterised statement with whatsapp_number
+    // 3. ANTI-FRAUD: Self-Referral Block
+    if (studentNumber === referrerId) {
+      return { success: false, message: "Nice try! You cannot refer yourself. 😉" };
+    }
+
+    // 4. ANTI-FRAUD: Duplicate Entry Block (Prevents hijacking)
+    const existingStudent = db.prepare('SELECT id FROM enrollments WHERE student_number = ?').get(studentNumber);
+    if (existingStudent) {
+      return { success: false, message: "This student number is already locked in!" };
+    }
+
+    // 5. Secure Database Insertion
     const stmt = db.prepare(`
       INSERT INTO enrollments (full_name, student_number, whatsapp_number, plan, referrer_id)
       VALUES (?, ?, ?, ?, ?)
     `);
 
-    // Execute the statement securely
-    stmt.run(fullName, studentNumber, whatsappNumber, plan, referrerId);
+    stmt.run(fullName, studentNumber, whatsappNumber, plan, referrerId || null);
 
     return { success: true, message: "Enrollment secured." };
   } catch (error) {
     console.error("Database Error:", error);
-    return { success: false, message: "Failed to save enrollment." };
+    return { success: false, message: "Failed to save enrollment. Please try again." };
   }
 }
+
+// ... (keep your togglePaymentStatus and toggleBountyStatus functions here)
