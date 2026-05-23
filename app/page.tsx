@@ -15,7 +15,7 @@ export default function CodingEssentialsPage() {
       title: "Standard Plan",
       price: "R250",
       period: "/ 1 hour session",
-      sessionInfo: "Flexible Scheduling",
+      sessionInfo: "1 session only",
       features: ["Last-minute exam prep", "On-demand ", "Last minute Past paper deep-dives"],
       isFeatured: false
     },
