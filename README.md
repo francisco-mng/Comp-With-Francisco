@@ -1,36 +1,36 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Comp With Francisco | Educational Platform & CRM
 
-## Getting Started
+**Comp With Francisco** is a full-stack educational platform and custom Customer Relationship Management (CRM) system designed to deliver high-impact, "understanding-first" computer science and IT mentorship. 
 
-First, run the development server:
+Built from the ground up to support a tutoring and content creation business, this platform automates student enrollments, manages a built-in affiliate marketing engine, and handles secure data tracking for university-level exam bootcamps.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🎯 Project Vision
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The goal of this platform is to bridge the gap between superficial learning (e.g., AI copy-pasting) and true mechanical execution. It serves as both the marketing funnel and the operational backend for teaching complex computer science concepts, programming fundamentals, and software architecture through visual storytelling and strategic academic partnership.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Core Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* **Custom Automated Enrollment Funnel:** A high-conversion landing page architecture with strict form validation (duplicate prevention, university student number verification) that routes directly into a secure local database.
+* **The "Bounty" Affiliate Engine:** A custom-built referral ledger that tracks student-to-student marketing, automatically calculating referral payouts and preventing self-referral exploitation.
+* **Secure Admin Command Center:** A strictly protected, PIN-gated dashboard for real-time business analytics, lead management, and revenue tracking across different pricing tiers.
+* **Zero-Friction Analytics:** Seamless integration with Microsoft Clarity for user session playbacks and heatmaps, injected without blocking the main React thread.
+* **Local-First Production Infrastructure:** Bypasses serverless database-wipe limitations by utilizing Cloudflare Tunnels to serve the application directly from a local SSD, ensuring absolute data persistence and zero latency during high-traffic payday spikes.
 
-## Learn More
+## 🛠️ Technical Stack (V1)
 
-To learn more about Next.js, take a look at the following resources:
+The current architecture is built for rapid deployment and single-machine hosting:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* **Frontend:** Next.js (App Router), React, Tailwind CSS
+* **Backend:** Next.js Server Actions
+* **Database:** SQLite (`bootcamp.db`) for lightweight, local file persistence
+* **Analytics:** Microsoft Clarity
+* **Infrastructure:** Cloudflare Tunnels, Node.js
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ⚙️ Local Development Setup
 
-## Deploy on Vercel
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/yourusername/compwithfrancisco.git](https://github.com/yourusername/compwithfrancisco.git)
+   cd compwithfrancisco
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<img width="727" height="552" alt="image" src="https://github.com/user-attachments/assets/39955e4d-9420-4180-ba62-d87a67ed9fdd" />
