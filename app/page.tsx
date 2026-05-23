@@ -13,8 +13,8 @@ export default function CodingEssentialsPage() {
   const plans = [
     {
       title: "Standard Plan",
-      price: "R239",
-      period: "/ hour",
+      price: "R250",
+      period: "/ 1 hour session",
       sessionInfo: "Flexible Scheduling",
       features: ["Last-minute exam prep", "On-demand ", "Last minute Past paper deep-dives"],
       isFeatured: false
