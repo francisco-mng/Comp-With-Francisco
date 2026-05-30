@@ -40,4 +40,4 @@ The current architecture is built for rapid deployment and single-machine hostin
 To help me keep track of the status of the customers and whether prospects signed up or not, I used a hidden route in my application. 
 Simply visit localhost:8080/adminmng and enter the secret password stored in your project environment variables. 
 
-The specific value that is read in is ADMIN_SECTET which grants you access to the admin page to see all customers who expressed interest in my mentorship program.
+The specific value that is read in is ADMIN_PIN which grants you access to the admin page to see all customers who expressed interest in my mentorship program.
