@@ -44,3 +44,6 @@ next-env.d.ts
 
 #my database
 bootcamp.db
+
+#Checking database
+bootcamp.db 
