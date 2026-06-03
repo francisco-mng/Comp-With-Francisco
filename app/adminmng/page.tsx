@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { fetchAdminData, togglePaymentStatus, toggleBountyStatus } from '@/app/adminmng/admin';
+import { fetchAdminData, togglePaymentStatus, toggleBountyStatus, exportToCSV } from '@/app/adminmng/admin';
 
 type Enrollment = {
   id: number;
@@ -59,6 +59,29 @@ export default function AdminDashboard() {
     }
   };
 
+  const handleExport = async () => {
+    const result = await exportToCSV(pin);
+    
+    if (result.success && result.csv) {
+      // Create a Blob from the CSV string
+      const blob = new Blob([result.csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      
+      // Generate timestamp for filename
+      const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
+      
+      // Trigger download
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', `bootcamp_enrollments_${timestamp}.csv`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      alert(result.message || "Failed to export data");
+    }
+  };
+
   if (students !== null) {
     const totalLeads = students.length;
     const paidStudents = students.filter(s => s.is_paid === 1).length;
@@ -92,9 +115,14 @@ export default function AdminDashboard() {
               <h1 className="text-3xl font-black text-slate-900 tracking-tight">Bootcamp Command Center</h1>
               <p className="text-sm font-medium text-slate-500 mt-1">Manage enrollments, track revenue, and clear bounties.</p>
             </div>
-            <button onClick={() => setStudents(null)} className="text-sm font-bold bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 px-4 py-2 rounded-lg transition-all shadow-sm">
-              🔒 Lock Dashboard
-            </button>
+            <div className="flex gap-2">
+              <button onClick={handleExport} className="text-sm font-bold bg-emerald-50 border border-emerald-200 text-emerald-700 hover:bg-emerald-100 px-4 py-2 rounded-lg transition-all shadow-sm flex items-center gap-2">
+                📥 Export CSV
+              </button>
+              <button onClick={() => setStudents(null)} className="text-sm font-bold bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 px-4 py-2 rounded-lg transition-all shadow-sm">
+                🔒 Lock
+              </button>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
