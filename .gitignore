@@ -30,9 +30,14 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
+#database
+bootcamp.db
+
+
 # env files (can opt-in for committing if needed)
 .env*
 .env*.local
+.env*.production
 
 
 # vercel
@@ -42,8 +47,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-#my database
-bootcamp.db
 
 #Checking database
 bootcamp.db 
