@@ -39,6 +39,7 @@ bootcamp.db
 .env*.local
 .env*.production
 
+
 # vercel
 .vercel
 
@@ -46,5 +47,6 @@ bootcamp.db
 *.tsbuildinfo
 next-env.d.ts
 
-#Don't include database files
-bootcamp.db
+
+#Checking database
+bootcamp.db 
