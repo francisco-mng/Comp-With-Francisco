@@ -3,7 +3,11 @@
 import { useState } from 'react';
 import { submitEnrollment } from '@/app/actions/enrol';
 
-export default function EnrollmentForm() {
+interface EnrollmentFormProps {
+  onSuccess?: () => void;
+}
+
+export default function EnrollmentForm({ onSuccess }: EnrollmentFormProps = {}) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -45,6 +49,7 @@ export default function EnrollmentForm() {
 
     if (result.success) {
       setIsSuccess(true);
+      onSuccess?.();
     } else {
       // Catch any server-side errors (like Duplicate Entries)
       setErrorMessage(result.message);
