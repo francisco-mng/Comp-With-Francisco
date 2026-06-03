@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import CountdownTimer from '@/components/ui/CountdownTimer';
 
 export default function HeroSection() {
   return (
@@ -31,10 +32,14 @@ export default function HeroSection() {
             </div>
            
             <p className="text-lg text-slate-500 max-w-xl mx-auto font-medium">
-              Let me help you crush your ISTN2IP exam! You can still improve I&apos;m here to help you understand better. 
+              Let me help you absolutely crush your ISTN2IP supplemental exam! If you're writing the supp, this is the final stretch, and I'm here to make sure you walk in with total confidence.
               <br></br><br></br>
-              Since exams are around the corner, my main priority is to help you understand the core concepts and problem-solving techniques that will allow you to excel in your exams.
+              With the exam just around the corner, we're going to focus on the core concepts and problem-solving techniques that will actually get you the marks.
+              <br></br><br></br>
+              This is your last chance to pass the module. <br></br><br></br>Let's make it count ;{")"}
             </p>
+            
+            <CountdownTimer targetDate="2026-06-22T09:00:00" />
           </header>
   );
 }

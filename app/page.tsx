@@ -20,18 +20,20 @@ export default function CodingEssentialsPage() {
       isFeatured: false
     },
     {
-      title: "Special Exam Intake (pay once)",
+      title: "Supplemental Exam Intake (pay once)",
       price: "R500",
-      period: "/ till end of exams",
-      sessionInfo: "3hr sessions 3x a week",
+      period: "/ till end of supplemental exam",
+      sessionInfo: "3hr sessions 3x a week - STARTING THIS WEEK!",
       features: [
-        "Sign in now and get help until you finish writing your exams OR sup",
-        "3 Hours total deep-dive mentorship for 3x a week",
+        "This is your absolute last chance to pass ISTN2IP. Don't leave it to luck.",
+        "Unlimited support from today until you walk out of your supplemental exam hall",
+        "3 Hours of total deep-dive mentorship, 3x a week",
         "Priority WhatsApp Helpline. Response in less than 24H",
-        "Recordings & Code included",
-        "Send me custom questions and past papers, I'll help you go through them", 
+        "Get access to all the previously recorded sessions, which will save you time and effort",
+        "I'll teach you how to actually read, understand, and attack the exam problems.", 
         "Learn more in one session than anywhere else", 
-        "BEST VALUE"
+        "We'll go through exam past papers step by step and you'll be equipped to tackle the exam",
+        "BEST VALUE - Last Chance ;)"
       ],
       isFeatured: true
     }
@@ -58,7 +60,7 @@ export default function CodingEssentialsPage() {
         </p>
       </SketchBox>
 
-      <SketchBox title="Pass your ISTN2IP exams with confidence.🔥🔥🔥">
+      <SketchBox title="Pass your ISTN2IP supplemental exam with confidence.🔥🔥🔥">
         <p>
           I have mentored 200+ over 2 years as an SI Leader at UKZN. 
           I'm confident that you too can be one of the students who have transformed from struggling to understanding programming.
@@ -184,8 +186,8 @@ export default function CodingEssentialsPage() {
       <footer className="text-center mt-12">
         <footer className="mt-16 pb-12 text-center">
         <div className="mb-8">
-          <h2 className="text-3xl font-black text-slate-900 mb-2">Ready to crush your exam?</h2>
-          <p className="text-slate-500 font-medium">Select a plan you're interested in and I'll we'll talk over on WhatsApp.</p>
+          <h2 className="text-3xl font-black text-slate-900 mb-2">This could be your last chance to pass ISTN2IP! <br/><br/><br/> What are you waiting for?</h2>
+          <p className="text-slate-500 font-medium">Select a plan below to lock in your spot, and we'll finalize the details over WhatsApp.</p>
         </div>
         
         {/* Render the Client Component Form */}

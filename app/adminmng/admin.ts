@@ -49,7 +49,7 @@ export const togglePaymentStatus = async (id: number, currentStatus: number, sub
     // Force the dashboard to refresh its data
     // Note: This assumes the dashboard is using a 
     // client-side data fetching approach that respects revalidation
-    revalidatePath('/adminMNG');
+    revalidatePath('/adminmng');
     
     return { success: true };
   } catch (error) {
@@ -70,7 +70,7 @@ export const toggleBountyStatus = async (id: number, currentStatus: number, subm
     const stmt = db.prepare('UPDATE enrollments SET bounty_paid = ? WHERE id = ?');
     stmt.run(newStatus, id);
     
-    revalidatePath('/adminMNG');
+    revalidatePath('/adminmng');
     return { success: true };
   } catch (error) {
     console.error("Update Error:", error);

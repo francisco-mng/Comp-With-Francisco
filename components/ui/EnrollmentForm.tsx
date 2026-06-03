@@ -20,7 +20,6 @@ export default function EnrollmentForm() {
     // ==========================================
     const studentNum = formData.get('studentNumber')?.toString().trim() || '';
     const whatsappNum = formData.get('whatsappNumber')?.toString().replace(/\s+/g, '') || '';
-    const referrerId = formData.get('referrerId')?.toString().trim() || '';
 
     // Regex Rules
     const studentRegex = /^\d{9}$/;
@@ -34,18 +33,6 @@ export default function EnrollmentForm() {
 
     if (!whatsappRegex.test(whatsappNum)) {
       setErrorMessage("Invalid WhatsApp Number. It must be 10 digits and start with 0.");
-      setIsSubmitting(false);
-      return;
-    }
-
-    if (referrerId && !studentRegex.test(referrerId)) {
-      setErrorMessage("Invalid Referrer Number. It must be exactly 9 digits.");
-      setIsSubmitting(false);
-      return;
-    }
-
-    if (studentNum === referrerId) {
-      setErrorMessage("Nice try! You cannot refer yourself. 😉");
       setIsSubmitting(false);
       return;
     }
@@ -71,7 +58,7 @@ export default function EnrollmentForm() {
     return (
       <div className="max-w-md mx-auto bg-emerald-50 p-8 border-2 border-emerald-500 rounded-xl shadow-[8px_8px_0px_#10b981] text-center">
         <div className="text-4xl mb-4">✅</div>
-        <h3 className="text-2xl font-black text-slate-900 mb-2">Request Received!</h3>
+        <h3 className="text-2xl font-black text-slate-800 mb-2">Request Received!</h3>
         <p className="text-slate-700 font-medium mb-6">
           I'll be reaching out to you on WhatsApp shortly to have a quick chat, share the EFT details, and get you ready for the sessions!
         </p>
@@ -114,26 +101,9 @@ export default function EnrollmentForm() {
         <div>
           <label htmlFor="plan" className="block text-sm font-bold text-slate-700 mb-2">Select Your Mentorship Track</label>
           <select id="plan" name="plan" className="w-full px-4 py-3 border-2 border-slate-300 rounded focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-200 font-bold bg-slate-50 cursor-pointer">
-            <option value="Special Exam Intake (R500)">Special Exam Intake (R500 flat fee)</option>
+            <option value="Special Exam Intake (R500)">Supplemental Exam Intake (R500 flat fee)</option>
             <option value="Standard Plan (R250)">Standard Plan (R250/hour)</option>
           </select>
-        </div>
-
-        <div className="pt-4 border-t-2 border-dashed border-slate-200 mt-6 relative">
-          <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-600 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-sm whitespace-nowrap">
-            Earn Cash Without Enrolling
-          </div>
-          
-          <div className="bg-red-50 border border-red-200 rounded p-3 mb-4 mt-2">
-            <p className="text-sm font-bold text-red-700 text-center">
-              🚨 Wanna make some extra cash? <br/> Tell a friend doing ISTN2IP to enroll and put your Student Number below. You get the R110 cash bounty <strong><i> even  if you don't sign up!</i></strong>
-            </p>
-            <br className="hidden md:block" />
-            <p className="text-sm font-bold text-red-700 text-center">(Only when they fully enroll) </p>
-          </div>
-
-          <label htmlFor="referrerId" className="block text-sm font-bold text-emerald-600 mb-2">Referred by a friend? (Optional)</label>
-          <input type="text" id="referrerId" name="referrerId" className="w-full px-4 py-3 border-2 border-slate-300 rounded focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-200 font-medium font-mono" placeholder="Enter their Student Number" />
         </div>
 
         <button 
