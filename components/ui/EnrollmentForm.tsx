@@ -58,7 +58,7 @@ export default function EnrollmentForm() {
     return (
       <div className="max-w-md mx-auto bg-emerald-50 p-8 border-2 border-emerald-500 rounded-xl shadow-[8px_8px_0px_#10b981] text-center">
         <div className="text-4xl mb-4">✅</div>
-        <h3 className="text-2xl font-black text-slate-800 mb-2">Request Received!</h3>
+        <h3 className="text-2xl font-black text-slate-900 mb-2">Request Received!</h3>
         <p className="text-slate-700 font-medium mb-6">
           I'll be reaching out to you on WhatsApp shortly to have a quick chat, share the EFT details, and get you ready for the sessions!
         </p>
@@ -101,7 +101,7 @@ export default function EnrollmentForm() {
         <div>
           <label htmlFor="plan" className="block text-sm font-bold text-slate-700 mb-2">Select Your Mentorship Track</label>
           <select id="plan" name="plan" className="w-full px-4 py-3 border-2 border-slate-300 rounded focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-200 font-bold bg-slate-50 cursor-pointer">
-            <option value="Special Exam Intake (R500)">Supplemental Exam Intake (R500 flat fee)</option>
+            <option value="Supplemental Exam Intake (R500)">Supplemental Exam Intake (R500 flat fee)</option>
             <option value="Standard Plan (R250)">Standard Plan (R250/hour)</option>
           </select>
         </div>
