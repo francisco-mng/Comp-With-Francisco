@@ -10,11 +10,10 @@ export async function submitEnrollment(formData: FormData) {
     const studentNumber = formData.get('studentNumber')?.toString().trim() || '';
     const whatsappNumber = formData.get('whatsappNumber')?.toString().replace(/\s+/g, '') || ''; // Strips spaces
     const plan = formData.get('plan')?.toString() || '';
-    const referrerId = formData.get('referrerId')?.toString().trim() || '';
 
 
     //Stop right there, hacker! Let's validate this data before it even hits the database.
-    const validPlans = ["Special Exam Intake (R500)", "Standard Plan (R250)"];
+    const validPlans = ["Supplemental Exam Intake (R500)", "Standard Plan (R250)"];
     if (!validPlans.includes(plan)) {
       return { success: false, message: "Invalid plan selected. Stop hacking the form! 😉" };
     }
@@ -23,11 +22,6 @@ export async function submitEnrollment(formData: FormData) {
     // 2. Basic Empty Field Validation
     if (!fullName || !studentNumber || !whatsappNumber) {
       return { success: false, message: "Please fill out all required fields." };
-    }
-
-    // 3. ANTI-FRAUD: Self-Referral Block
-    if (studentNumber === referrerId) {
-      return { success: false, message: "Nice try! You cannot refer yourself. 😉" };
     }
 
     // 4. ANTI-FRAUD: Duplicate Entry Block (Prevents hijacking)
@@ -48,7 +42,7 @@ export async function submitEnrollment(formData: FormData) {
       return { success: false, message: "This WhatsApp number is already registered to another student!" };
     }
 
-    stmt.run(fullName, studentNumber, whatsappNumber, plan, referrerId || null);
+    stmt.run(fullName, studentNumber, whatsappNumber, plan, null);
 
     return { success: true, message: "Enrollment secured." };
   } catch (error) {
