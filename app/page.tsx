@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import SketchBox from '@/components/ui/SketchBox';
 import PricingCard from '@/components/ui/PricingCard';
 import HeroSection from '@/components/ui/HeroSection';
@@ -183,8 +184,19 @@ export default function CodingEssentialsPage() {
       </div>
 
       {/* Action Footer */}
-      <footer className="text-center mt-12">
+      <footer className="text-center mt-12 border-t-2 border-dashed border-slate-200 pt-8">
         <EnrollmentSection />
+        
+        <div className="mt-12 text-sm text-slate-500 space-y-4">
+          <p className="max-w-2xl mx-auto leading-relaxed">
+            Please note: Mentorship packages and specialized exam cohorts have specific cancellation terms. Please review our <strong>Refund & Cancellation</strong> policy before securing your seat.
+          </p>
+          <div className="flex justify-center gap-6">
+            <Link href="/policies/privacy" className="hover:text-blue-600 transition-colors font-medium">Privacy Policy</Link>
+            <Link href="/policies/refund" className="hover:text-blue-600 transition-colors font-medium">Refund & Cancellation</Link>
+          </div>
+          <p>© {new Date().getFullYear()} Comp With Francisco. All rights reserved.</p>
+        </div>
       </footer>
     </div>
   );
