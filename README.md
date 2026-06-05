@@ -30,16 +30,32 @@ The current architecture is built for rapid deployment and single-machine hostin
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/francisco-mng/Comp-With-Francisco.git]
-   cd comp-with-francisco
+   git clone https://github.com/francisco-mng/Comp-With-Francisco.git
+   cd Comp-With-Francisco
+   ```
 
-Make sure you have node installed on your computer ;)
+2. **Install dependencies:**
+   Make sure you have Node.js installed on your computer, then run:
+   ```bash
+   npm install
+   ```
 
-<img width="727" height="552" alt="image" src="https://github.com/user-attachments/assets/39955e4d-9420-4180-ba62-d87a67ed9fdd" />
+3. **Configure Environment Variables:**
+   To access the hidden admin dashboard and manage prospect/customer statuses, you must configure a secure PIN.
+   Create a `.env.development` (for local testing) or `.env.production` (for production) file in the root directory:
+   ```env
+   ADMIN_PIN=your_secret_password_here
+   ```
 
+4. **Start the Development Server:**
+   ```bash
+   npm run dev
+   ```
 
-2 **Create .env.production OR .env.development vars for hidden admin page**
-To help me keep track of the status of the customers and whether prospects signed up or not, I used a hidden route in my application. 
-Simply visit localhost:8080/adminmng and enter the secret password stored in your project environment variables. 
+5. **Access the Application:**
+   - **Main Website:** Open [http://localhost:8080](http://localhost:8080)
+   - **Admin Dashboard:** Visit [http://localhost:8080/adminmng](http://localhost:8080/adminmng) and enter your `ADMIN_PIN` to see all interested students.
 
-The specific value that is read in is ADMIN_PIN which grants you access to the admin page to see all customers who expressed interest in my mentorship program.
+<br />
+
+<img width="727" height="552" alt="Platform Interface" src="https://github.com/user-attachments/assets/39955e4d-9420-4180-ba62-d87a67ed9fdd" />
