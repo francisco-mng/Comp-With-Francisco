@@ -31,7 +31,7 @@ The current architecture is built for rapid deployment and single-machine hostin
 1. **Clone the repository:**
    ```bash
    git clone [https://github.com/francisco-mng/Comp-With-Francisco.git]
-   cd compwithfrancisco
+   cd comp-with-francisco
 
 <img width="727" height="552" alt="image" src="https://github.com/user-attachments/assets/39955e4d-9420-4180-ba62-d87a67ed9fdd" />
 
