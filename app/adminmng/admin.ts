@@ -49,7 +49,7 @@ export const togglePaymentStatus = async (id: number, currentStatus: number, sub
     // Force the dashboard to refresh its data
     // Note: This assumes the dashboard is using a 
     // client-side data fetching approach that respects revalidation
-    revalidatePath('/adminMNG');
+    revalidatePath('/adminmng');
     
     return { success: true };
   } catch (error) {
@@ -70,10 +70,42 @@ export const toggleBountyStatus = async (id: number, currentStatus: number, subm
     const stmt = db.prepare('UPDATE enrollments SET bounty_paid = ? WHERE id = ?');
     stmt.run(newStatus, id);
     
-    revalidatePath('/adminMNG');
+    revalidatePath('/adminmng');
     return { success: true };
   } catch (error) {
     console.error("Update Error:", error);
     return { success: false };
+  }
+}
+
+// NEW ACTION: Export Data to CSV
+export const exportToCSV = async (submittedPin: string) => {
+  try {
+    const secretPin = process.env.ADMIN_PIN;
+    if (!secretPin || submittedPin.trim() !== secretPin.trim()) {
+      return { success: false, message: "Unauthorized." };
+    }
+
+    const stmt = db.prepare('SELECT * FROM enrollments ORDER BY created_at DESC');
+    const enrollments = stmt.all() as Record<string, any>[];
+
+    if (enrollments.length === 0) {
+      return { success: false, message: "No data to export." };
+    }
+
+    // Extract headers safely
+    const headers = Object.keys(enrollments[0]).join(',');
+    
+    // Map rows and escape fields containing commas or quotes
+    const rows = enrollments.map(row => 
+      Object.values(row).map(value => 
+        typeof value === 'string' ? `"${value.replace(/"/g, '""')}"` : value
+      ).join(',')
+    );
+
+    return { success: true, csv: [headers, ...rows].join('\n') };
+  } catch (error) {
+    console.error("Export Error:", error);
+    return { success: false, message: "Failed to export data." };
   }
 }

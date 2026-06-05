@@ -1,8 +1,9 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import SketchBox from '@/components/ui/SketchBox';
 import PricingCard from '@/components/ui/PricingCard';
 import HeroSection from '@/components/ui/HeroSection';
-import EnrollmentForm from '@/components/ui/EnrollmentForm';
+import EnrollmentSection from '@/components/ui/EnrollmentSection';
 
 //Importing images: 
 import testimonial1 from '@/public/images/testimonial1.png'
@@ -20,18 +21,20 @@ export default function CodingEssentialsPage() {
       isFeatured: false
     },
     {
-      title: "Special Exam Intake (pay once)",
+      title: "Supplemental Exam Intake (pay once)",
       price: "R500",
-      period: "/ till end of exams",
-      sessionInfo: "3hr sessions 3x a week",
+      period: "/ till end of supplemental exam",
+      sessionInfo: "3hr sessions 3x a week - STARTING THIS WEEK!",
       features: [
-        "Sign in now and get help until you finish writing your exams OR sup",
-        "3 Hours total deep-dive mentorship for 3x a week",
+        "This is your absolute last chance to pass ISTN2IP. Don't leave it to luck.",
+        "Unlimited support from today until you walk out of your supplemental exam hall",
+        "3 Hours of total deep-dive mentorship, 3x a week",
         "Priority WhatsApp Helpline. Response in less than 24H",
-        "Recordings & Code included",
-        "Send me custom questions and past papers, I'll help you go through them", 
+        "Get access to all the previously recorded sessions, which will save you time and effort",
+        "I'll teach you how to actually read, understand, and attack the exam problems.", 
         "Learn more in one session than anywhere else", 
-        "BEST VALUE"
+        "We'll go through exam past papers step by step and you'll be equipped to tackle the exam",
+        "BEST VALUE - Last Chance ;)"
       ],
       isFeatured: true
     }
@@ -58,7 +61,7 @@ export default function CodingEssentialsPage() {
         </p>
       </SketchBox>
 
-      <SketchBox title="Pass your ISTN2IP exams with confidence.🔥🔥🔥">
+      <SketchBox title="Pass your ISTN2IP supplemental exam with confidence.🔥🔥🔥">
         <p>
           I have mentored 200+ over 2 years as an SI Leader at UKZN. 
           I'm confident that you too can be one of the students who have transformed from struggling to understanding programming.
@@ -181,22 +184,19 @@ export default function CodingEssentialsPage() {
       </div>
 
       {/* Action Footer */}
-      <footer className="text-center mt-12">
-        <footer className="mt-16 pb-12 text-center">
-        <div className="mb-8">
-          <h2 className="text-3xl font-black text-slate-900 mb-2">Ready to crush your exam?</h2>
-          <p className="text-slate-500 font-medium">Select a plan you're interested in and I'll we'll talk over on WhatsApp.</p>
+      <footer className="text-center mt-12 border-t-2 border-dashed border-slate-200 pt-8">
+        <EnrollmentSection />
+        
+        <div className="mt-12 text-sm text-slate-500 space-y-4">
+          <p className="max-w-2xl mx-auto leading-relaxed">
+            Please note: Mentorship packages and specialized exam cohorts have specific cancellation terms. Please review our <strong>Refund & Cancellation</strong> policy before securing your seat.
+          </p>
+          <div className="flex justify-center gap-6">
+            <Link href="/policies/privacy" className="hover:text-blue-600 transition-colors font-medium">Privacy Policy</Link>
+            <Link href="/policies/refund" className="hover:text-blue-600 transition-colors font-medium">Refund & Cancellation</Link>
+          </div>
+          <p>© {new Date().getFullYear()} Comp With Francisco. All rights reserved.</p>
         </div>
-        
-        {/* Render the Client Component Form */}
-        <EnrollmentForm />
-        
-        <p className="text-xs font-semibold text-slate-400 mt-6 max-w-sm mx-auto">
-          Be on the lookout for my WhatsApp messages to complete your enrollment!
-          We can also discuss any questions you have about the plans {"(split payments)"}, scheduling,
-           or how I can best support your exam prep. I&apos;m here to help you succeed!
-        </p>
-      </footer>
       </footer>
     </div>
   );
