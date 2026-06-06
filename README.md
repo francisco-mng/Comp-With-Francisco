@@ -51,10 +51,13 @@ Bash
 npm install
 3. Configure Environment Variables: To access the hidden admin dashboard and manage prospect/customer statuses, you must configure a secure PIN. Create a .env.development (for local testing) and .env.production (for production) file in the root directory:
 
-Code snippet
-ADMIN_PIN=your_secret_password_here
-4. Start the Development Server:
+This is done best by creating a .env.production or .env.development file in your root folder and add the following lines to the file/s
 
+ADMIN_PIN=your_secret_password_here
+
+The admin pin will make the admin page visible, but the pin is securely stored in your server computer and referenced as an environment variable ;)
+
+4. Start the Development Server:
 Bash
 npm run dev
 5. Access the Application:
